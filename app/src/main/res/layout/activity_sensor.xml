@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SensorActivity">
     <Button
+        android:id="@+id/showSensorB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/showSensor"/>
@@ -39,5 +41,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/akce_label"
+        android:layout_margin="8dp" />
+
+    <TextView
+        android:id="@+id/kompasLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/kompas_label"
+        android:layout_margin="8dp" />
+    <TextView
+        android:id="@+id/orientLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/orient_label"
         android:layout_margin="8dp" />
 </LinearLayout>
