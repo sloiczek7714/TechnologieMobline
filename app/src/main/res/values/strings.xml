@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TechnologieMobline</string>
+    <string name="already_have_an_account_login">Already have an account? Sign in</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="don_t_have_an_account_sign_in">Don\'t have an account? Sign in</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="signed">sign</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="lab1">Labolatorium 1 - Budowanie oprogramowania wykorzystującego podstawowe kontrolki</string>
+    <string name="lab2">Labolatorium 2 - Budowanie oprogramowania złożonego z komunikujących się komponentów</string>
+    <string name="lab3">Labolatorium 3 - Budowanie oprogramowania wykorzystującego sensory</string>
+    <string name="lab4">Labolatorium 4 - Budowanie oprogramowania wykorzystującego zarządzanie danymi i listy</string>
+    <string name="choose_lab">Wybierz labolatorium</string>
+    <string name="title_activity_sensor">SensorActivity</string>
+    <string name="showSensor">Pokaż sensory</string>
+    <string name="proximity_label">Proximity sensor: %1$.2f</string>
+    <string name="light_label">Light sensor: %1$.2f </string>
+    <string name="akce_label">Akcel: %1$.2f : %2$.2f : %3$.2f</string>
+    <string name="kompas_label">Kompas: %1$.2f : %2$.2f : %3$.2f</string>
+    <string name="orient_label">Orient: %1$.2f : %2$.2f : %3$.2f</string>
+    <string name="sensor_error">Błąd sensora</string>
+</resources>

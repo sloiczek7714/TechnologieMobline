@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SensorActivity">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/showSensor"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:scrollbars="vertical|horizontal">
+
+        <TextView
+            android:id="@+id/listaTv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp" />
+    </ScrollView>
+    <TextView
+        android:id="@+id/labelLight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/light_label"
+        android:layout_margin="8dp" />
+    <TextView
+        android:id="@+id/labelProximity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/light_label"
+        android:layout_margin="8dp" />
+    <TextView
+        android:id="@+id/akcelerometrLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/akce_label"
+        android:layout_margin="8dp" />
+</LinearLayout>
