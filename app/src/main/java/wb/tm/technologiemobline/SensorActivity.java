@@ -95,20 +95,21 @@ public class SensorActivity extends AppCompatActivity implements View.OnClickLis
                 proximityLabel.setText(getResources().getString(R.string.proximity_label, currentValue));
                 break;
             case Sensor.TYPE_LIGHT:
-                lightLabel.setText(String.format("Light sensor = %2.f", currentValue));
+                lightLabel.setText(getResources().getString(R.string.light_label,currentValue));
+                //lightLabel.setText(String.format("Light sensor = %2.f", currentValue));
                 break;
             case Sensor.TYPE_ACCELEROMETER:
                 mAkcelerometrData = sensorEvent.values.clone();
                 akcelLabel.setText(getResources().getString(R.string.akce_label,mAkcelerometrData[0],mAkcelerometrData[1],mAkcelerometrData[2]));
                 break;
-//            case Sensor.TYPE_MAGNETIC_FIELD:
-//                mKompasData = sensorEvent.values.clone();
-//                kompasLabel.setText(getResources().getString(R.string.kompas_label,mKompasData[0],mKompasData[1],mKompasData[3]));
+            case Sensor.TYPE_MAGNETIC_FIELD:
+                mKompasData = sensorEvent.values.clone();
+                kompasLabel.setText(getResources().getString(R.string.kompas_label,mKompasData[0],mKompasData[1],mKompasData[2]));
         }
         boolean rotationOK = SensorManager.getRotationMatrix(mRotationMatrix,null,mAkcelerometrData,mKompasData);
         if (rotationOK){
             SensorManager.getOrientation(mRotationMatrix, mOrientation);
-            orientationLabel.setText("Orient: {mOrientation[0] * 180 / Math.PI} : {mOrientation[1] * 180 / Math.PI} : mOrientation[2] * 180 / Math.PI");
+            orientationLabel.setText(getResources().getString(R.string.orient_label, mOrientation[0] * 180 / Math.PI , mOrientation[1] * 180 / Math.PI, mOrientation[2] * 180 / Math.PI));
         }
 
 
