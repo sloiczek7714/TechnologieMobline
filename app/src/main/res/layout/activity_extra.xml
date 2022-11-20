@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExtraActivity">
+    <LinearLayout
+        android:layout_width="394dp"
+        android:layout_height="711dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="10dp">
+
+        <TextView
+            android:id="@+id/textKontakt"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonKontakt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybierz kontakt" />
+
+        <EditText
+            android:id="@+id/editWyszukiwanie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/buttonWyszukaj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wyszukaj" />
+
+        <Button
+            android:id="@+id/buttonMapa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wyszukaj w mapach" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,33 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context=".ListsActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        <TextView
+            android:id="@+id/textLab"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Laboratorium 2"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/editItem"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:hint="Wpisz daną"
+            android:padding="4dp" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="351dp"
+            android:choiceMode="multipleChoice" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonDodaj"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:insetLeft="20dp"
+                android:text="Dodaj" />
+
+            <Button
+                android:id="@+id/buttonUsun"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:insetLeft="20dp"
+                android:text="Usuń"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonZapisz"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:insetLeft="20dp"
+                android:text="Zapisz" />
+
+            <Button
+                android:id="@+id/buttonWczytaj"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:insetLeft="20dp"
+                android:text="Wczytaj" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

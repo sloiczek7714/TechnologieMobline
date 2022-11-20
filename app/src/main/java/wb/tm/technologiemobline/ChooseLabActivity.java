@@ -33,7 +33,7 @@ public class ChooseLabActivity extends AppCompatActivity  {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseLabActivity.this,SensorActivity.class);
+                Intent intent = new Intent(ChooseLabActivity.this,ExtraActivity.class);
                 startActivity(intent);
             }
         });
