@@ -25,4 +25,5 @@
     <string name="kompas_label">Kompas: %1$.2f : %2$.2f : %3$.2f</string>
     <string name="orient_label">Orient: %1$.2f : %2$.2f : %3$.2f</string>
     <string name="sensor_error">Błąd sensora</string>
+    <string name="extra">Ekstra points</string>
 </resources>

@@ -33,7 +33,7 @@ public class ChooseLabActivity extends AppCompatActivity  {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseLabActivity.this,ExtraActivity.class);
+                Intent intent = new Intent(ChooseLabActivity.this,SensorActivity.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +41,7 @@ public class ChooseLabActivity extends AppCompatActivity  {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseLabActivity.this,SensorActivity.class);
+                Intent intent = new Intent(ChooseLabActivity.this,ComponentsActivity.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,15 @@ public class ChooseLabActivity extends AppCompatActivity  {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseLabActivity.this,SensorActivity.class);
+                Intent intent = new Intent(ChooseLabActivity.this, SampleControllsActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button button5 = (Button) findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChooseLabActivity.this, ExtraActivity.class);
                 startActivity(intent);
             }
         });
