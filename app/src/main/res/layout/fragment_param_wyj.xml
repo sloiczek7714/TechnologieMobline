@@ -3,25 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ParamWyjFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Parametr wyjściowy" />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:insetLeft="200dp"
+        android:text="Parametr wyjściowy"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/edit2"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    <EditText
+        android:id="@+id/edit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:insetLeft="170dp"
+        android:textSize="20sp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
+    <Button
+        android:id="@+id/getB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:insetLeft="130dp"
+        android:insetTop="100dp"
+        android:text="Odbierz" />
 
 
 </FrameLayout>
