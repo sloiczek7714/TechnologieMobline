@@ -21,7 +21,8 @@ public class SampleControllsActivity extends AppCompatActivity {
     Switch switchA;
     Switch switchB;
     Button button;
-    String wagon = "";
+    String table = " stolik prostokatny";
+    String partner=" dla jednej osoby";
     TextView wynik;
 
     @Override
@@ -42,32 +43,32 @@ public class SampleControllsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(switchA.isChecked()){
-                    wagon = " przedziałowym ";
-                }
+                    table = " stolik okrągły";
+                } else table = " stolik prostokatny";
             }
         });
         switchB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(switchB.isChecked()){
-                    wagon = " bezprzedziałowym ";
-                }
+                    partner = " z osobą towarzyszącą";
+                } else partner=" dla jednej osoby";
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String imiePasazera = imie.getText().toString();
-                String nazwiskoPasazera = nazwisko.getText().toString();
+                String imieG = imie.getText().toString();
+                String nazwiskoG = nazwisko.getText().toString();
                 String klasa = "";
                 if(radio_one.isChecked()){
-                    klasa = " 1 ";
+                    klasa = " VIP ";
                 }
                 else if(radio_two.isChecked()){
-                    klasa = " 2 ";
+                    klasa = " normlany ";
                 }
 
-                wynik.setText("Użytkownik " + imiePasazera + " " + nazwiskoPasazera + " kupił bilet w klasie" + klasa + "w wagonie" + wagon + ".");
+                wynik.setText("Użytkownik " + imieG + " " + nazwiskoG + " kupił bilet " + klasa  + table + partner+".");
 
             }
         });

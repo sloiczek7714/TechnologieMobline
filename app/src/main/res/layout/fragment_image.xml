@@ -8,11 +8,37 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/goToParamWejG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="SendIn" />
+        <Button
+            android:id="@+id/goToParamWyjG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="SendOut" />
+        <Button
+            android:id="@+id/goToGalleryG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginLeft="15dp"
+            android:text="Go To Gallery" />
+    </LinearLayout>
     <TextView
         android:id="@+id/titleBal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="60dp"
         android:text="@string/hello_blank_fragment"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -22,7 +48,7 @@
         android:id="@+id/imageView2"
         android:layout_width="400dp"
         android:layout_height="500dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="10dp"
         android:adjustViewBounds="false"
         android:src="@drawable/fotobudka"

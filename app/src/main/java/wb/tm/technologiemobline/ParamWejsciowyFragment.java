@@ -1,17 +1,21 @@
 package wb.tm.technologiemobline;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ParamWejsciowyFragment#newInstance} factory method to
  * create an instance of this fragment.
+ *
  */
 public class ParamWejsciowyFragment extends Fragment {
 
@@ -23,10 +27,6 @@ public class ParamWejsciowyFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public ParamWejsciowyFragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -46,6 +46,10 @@ public class ParamWejsciowyFragment extends Fragment {
         return fragment;
     }
 
+    public ParamWejsciowyFragment() {
+        // Required empty public constructor
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,58 @@ public class ParamWejsciowyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_param_wejsciowy, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_param_wejsciowy, container, false);
+       // getArguments().getString("recordID");
+        Button sendIn = view.findViewById(R.id.goToParamWejWEJ);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        sendIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true);
+                ParamWejsciowyFragment f = new ParamWejsciowyFragment();
+                Bundle bundle = new Bundle();
+                TextView tv = view.findViewById(R.id.edit2);
+                bundle.putString("recordID", tv.getText().toString());
+                f.setArguments(bundle);
+                transaction.replace(R.id.fragmentContainerView, f, null);
+                transaction.commit();
+
+            }
+        });
+
+        Button sendOut = view.findViewById(R.id.goToParamWyjWEJ);
+        sendOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true);
+                ParamWyjFragment f = new ParamWyjFragment();
+                Bundle bundle = new Bundle();
+                TextView tv = view.findViewById(R.id.edit2);
+                bundle.putString("recordID", tv.getText().toString());
+                f.setArguments(bundle);
+                transaction.replace(R.id.fragmentContainerView, f, null);
+                transaction.commit();
+
+            }
+        });
+
+        Button imageB = view.findViewById(R.id.goToGalleryWEJ);
+        imageB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setReorderingAllowed(true);
+                transaction.replace(R.id.fragmentContainerView, ImageFragment.class, null);
+                transaction.commit();
+
+            }
+        });
+        return view;
     }
 }
