@@ -7,59 +7,89 @@
     tools:context=".ComponentsActivity">
 
     <LinearLayout
-        android:layout_width="391dp"
-        android:layout_height="621dp"
-        android:orientation="vertical"
+        android:layout_width="401dp"
+        android:layout_height="165dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="10dp"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Parametr wejściowy:" />
+            <!--            <TextView-->
+            <!--                android:id="@+id/text1"-->
+            <!--                android:layout_width="140dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:text="Parametr wejściowy:" />-->
 
-            <EditText
-                android:id="@+id/edit1"
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+            <!--            <EditText-->
+            <!--                android:id="@+id/edit1"-->
+            <!--                android:layout_width="88dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_weight="3"-->
+            <!--                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />-->
+<!--        </LinearLayout>-->
 
-        </LinearLayout>
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="60dp"-->
+        <!--            android:orientation="horizontal">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+        <!--            <TextView-->
+        <!--                android:id="@+id/text2"-->
+        <!--                android:layout_width="140dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:text="Parametr wyjściowy" />-->
 
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Parametr wyjściowy" />
-
-            <EditText
-                android:id="@+id/edit2"
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-        </LinearLayout>
+        <!--            <EditText-->
+        <!--                android:id="@+id/edit2"-->
+        <!--                android:layout_width="88dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_weight="3"-->
+        <!--                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
+        <!--        </LinearLayout>-->
 
         <Button
-            android:id="@+id/obliczB"
-            android:layout_width="match_parent"
+            android:id="@+id/goToParamWej"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wyślij" />
+            android:text="SendIn" />
+
+        <Button
+            android:id="@+id/goToParamWyj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SendOut" />
+
+        <Button
+            android:id="@+id/goToGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Go To Gallery" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="519dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp" >
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

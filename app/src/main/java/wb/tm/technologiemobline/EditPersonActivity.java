@@ -16,7 +16,7 @@ import wb.tm.technologiemobline.database.AppExecutors;
 import wb.tm.technologiemobline.model.Person;
 
 public class EditPersonActivity extends AppCompatActivity {
-    EditText name, email, pincode, city, phoneNumber;
+    EditText name, surname, rank, tableNumber;
     Button button;
     int mPersonId;
     Intent intent;
@@ -57,18 +57,16 @@ public class EditPersonActivity extends AppCompatActivity {
         }
 
         name.setText(person.getName());
-        email.setText(person.getEmail());
-        phoneNumber.setText(person.getNumber());
-        pincode.setText(person.getRank());
-        city.setText(person.getCity());
+        surname.setText(person.getSurname());
+        tableNumber.setText(person.getTableNumber());
+        rank.setText(person.getRank());
     }
 
     private void initViews() {
         name = findViewById(R.id.edit_name);
-        email = findViewById(R.id.edit_email);
-        pincode = findViewById(R.id.edit_pincode);
-        city = findViewById(R.id.edit_city);
-        phoneNumber = findViewById(R.id.edit_number);
+        surname = findViewById(R.id.edit_surname);
+        rank = findViewById(R.id.edit_rank);
+        tableNumber = findViewById(R.id.edit_tableNumber);
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,15 +74,15 @@ public class EditPersonActivity extends AppCompatActivity {
                 onSaveButtonClicked();
             }
         });
+
     }
 
     public void onSaveButtonClicked() {
         final Person person = new Person(
                 name.getText().toString(),
-                email.getText().toString(),
-                phoneNumber.getText().toString(),
-                pincode.getText().toString(),
-                city.getText().toString());
+                surname.getText().toString(),
+                tableNumber.getText().toString(),
+                rank.getText().toString());
 
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
@@ -99,7 +97,6 @@ public class EditPersonActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

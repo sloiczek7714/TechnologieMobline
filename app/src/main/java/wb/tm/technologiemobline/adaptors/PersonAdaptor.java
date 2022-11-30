@@ -37,10 +37,9 @@ public class PersonAdaptor extends RecyclerView.Adapter<PersonAdaptor.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull PersonAdaptor.MyViewHolder myViewHolder, int i) {
         myViewHolder.name.setText(mPersonList.get(i).getName());
-        myViewHolder.email.setText(mPersonList.get(i).getEmail());
-        myViewHolder.number.setText(mPersonList.get(i).getNumber());
+        myViewHolder.surname.setText(mPersonList.get(i).getSurname());
+        myViewHolder.number.setText(mPersonList.get(i).getTableNumber());
         myViewHolder.rank.setText(mPersonList.get(i).getRank());
-        myViewHolder.city.setText(mPersonList.get(i).getCity());
     }
 
     @Override
@@ -63,7 +62,7 @@ public class PersonAdaptor extends RecyclerView.Adapter<PersonAdaptor.MyViewHold
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, email, rank, number, city;
+        TextView name, surname, rank, number;
         ImageView editImage;
         AppDatabase mDb;
 
@@ -71,10 +70,9 @@ public class PersonAdaptor extends RecyclerView.Adapter<PersonAdaptor.MyViewHold
             super(itemView);
             mDb = AppDatabase.getInstance(context);
             name = itemView.findViewById(R.id.person_name);
-            email = itemView.findViewById(R.id.person_email);
+            surname = itemView.findViewById(R.id.person_surname);
             rank = itemView.findViewById(R.id.person_rank);
             number = itemView.findViewById(R.id.person_number);
-            city = itemView.findViewById(R.id.person_city);
             editImage = itemView.findViewById(R.id.edit_Image);
             editImage.setOnClickListener(new View.OnClickListener() {
                 @Override

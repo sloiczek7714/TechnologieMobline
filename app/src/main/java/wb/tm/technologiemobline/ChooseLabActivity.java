@@ -57,6 +57,14 @@ public class ChooseLabActivity extends AppCompatActivity  {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ChooseLabActivity.this, ExtraActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(ChooseLabActivity.this, PersonsActivity.class);
                 startActivity(intent);
             }

@@ -10,27 +10,24 @@ public class Person {
     @PrimaryKey(autoGenerate = true)
     int id;
     String name;
-    String email;
-    String number;
+    String surname;
+    String tableNumber;
     String rank;
-    String city;
 
     @Ignore
-    public Person(String name, String email, String number, String rank, String city) {
+    public Person(String name, String surname, String tableNumber, String rank) {
         this.name = name;
-        this.email = email;
-        this.number = number;
+        this.surname = surname;
+        this.tableNumber = tableNumber;
         this.rank = rank;
-        this.city = city;
     }
 
-    public Person(int id, String name, String email, String number, String rank, String city) {
+    public Person(int id, String name, String surname, String tableNumber, String rank) {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.number = number;
+        this.surname = surname;
+        this.tableNumber = tableNumber;
         this.rank = rank;
-        this.city = city;
     }
 
     public int getId() {
@@ -49,20 +46,20 @@ public class Person {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getNumber() {
-        return number;
+    public String getTableNumber() {
+        return tableNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setTableNumber(String tableNumber) {
+        this.tableNumber = tableNumber;
     }
 
     public String getRank() {
@@ -73,11 +70,4 @@ public class Person {
         this.rank = rank;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 }

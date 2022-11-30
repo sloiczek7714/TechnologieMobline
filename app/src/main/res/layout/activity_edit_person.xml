@@ -23,51 +23,41 @@
             android:padding="20dp" />
 
         <EditText
-            android:id="@+id/edit_email"
+            android:id="@+id/edit_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/border"
-            android:hint="Enter email"
-            android:inputType="textEmailAddress"
+            android:hint="Enter surname"
+            android:inputType="text"
             android:padding="20dp" />
 
         <EditText
-            android:id="@+id/edit_number"
+            android:id="@+id/edit_tableNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/border"
-            android:hint="Enter number"
-            android:inputType="phone"
-            android:padding="20dp" />
-
-        <EditText
-            android:id="@+id/edit_pincode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/border"
-            android:hint="Enter pincode"
+            android:hint="Enter table number"
             android:inputType="number"
             android:padding="20dp" />
 
         <EditText
-            android:id="@+id/edit_city"
+            android:id="@+id/edit_rank"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/border"
-            android:hint="Enter city"
+            android:hint="Enter rank"
+            android:inputType="text"
             android:padding="20dp" />
+
 
         <Button
             android:id="@+id/button"
@@ -78,5 +68,6 @@
             android:background="@drawable/border_back"
             android:padding="20dp"
             android:text="Save" />
+
     </LinearLayout>
 </ScrollView>

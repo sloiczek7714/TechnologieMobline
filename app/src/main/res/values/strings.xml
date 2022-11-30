@@ -29,9 +29,13 @@
     <string name="wypiszWer">Wypisz osoby o imieniu Weronika</string>
     <string name="wypiszPor">Wypisz Pułkowników</string>
     <string name="wypiszBaze">Pokaż wszytskie osoby</string>
+    <string name="bd">Database</string>
+    <string name="img">images</string>
     <string-array name="persons_table">
         <item>Weronika:Buras:27:szeregowy</item>
         <item>Artur:Ariuch:38:pulkownik</item>
         <item>Przemyslaw:Wachulak:15:general</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Fotobudka</string>
 </resources>
