@@ -1,103 +1,96 @@
 package wb.tm.technologiemobline;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
-import java.util.Locale;
+
+import wb.tm.technologiemobline.adaptors.PersonAdaptor;
+import wb.tm.technologiemobline.database.AppDatabase;
+import wb.tm.technologiemobline.database.AppExecutors;
+import wb.tm.technologiemobline.model.Person;
 
 public class PersonsActivity extends AppCompatActivity {
-
-    private PersonsDAO personsDAO;
-    private PersonsDB personDB;
-    private RecyclerView personsListsRecycler;
-    private RecyclerAdapter adapter;
-    private Button writePlk, writeWeroniki, writePersons;
+    FloatingActionButton floatingActionButton;
+    private RecyclerView mRecyclerView;
+    private PersonAdaptor mAdapter;
+    private AppDatabase mDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persons);
-        writePersons = findViewById(R.id.writeDatabaseB);
-        writePlk = findViewById(R.id.writePlkB);
-        writeWeroniki = findViewById(R.id.writeWeronikiB);
-         writePersons.setOnClickListener(listener);
-         writePlk.setOnClickListener(listener);
-         writeWeroniki.setOnClickListener(listener);
 
-        initDB();
-        writeToLogs("Persons", personsDAO.getPersons());
-        writeToLogs("Weronika", personsDAO.getName("weronika".toUpperCase()));
-        writeToLogs("Buras", personsDAO.getSurname("buras".toUpperCase()));
-        writeToLogs("27", personsDAO.getTableNumber(Integer.valueOf("27".toUpperCase())));
-        writeToLogs("Szeregowy", personsDAO.getRank("szeregowy".toUpperCase()));
-        loadDataToDB();
-        initRecycleView();
+        floatingActionButton = findViewById(R.id.addFAB);
 
-    }
-
-    private void initRecycleView() {
-        personsListsRecycler = findViewById(R.id.recyclerView);
-        personsListsRecycler.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerAdapter(this, personsDAO.getPersons());
-        personsListsRecycler.setAdapter(adapter);
-    }
-
-    private void writeToLogs(String TAG, List<PersonsTable> lista) {
-        for (PersonsTable person : lista) {
-            Log.i(TAG, person.getName() + ' ' + person.getSurname() + ' ' + person.getTableNumber() + ' ' + person.getRank());
-        }
-    }
-
-    private void initDB() {
-        personDB = Room.databaseBuilder(this, PersonsDB.class, "PersonDB").allowMainThreadQueries().build();
-        personsDAO = personDB.getPersonDao();
-        if (personsDAO.getCount() == 0) {
-            loadDataToDB();
-        }
-        Log.i("HOW MUCH", String.valueOf(personsDAO.getCount()));
-    }
-
-    private void loadDataToDB() {
-        String name;
-        String surname;
-        Integer tableNumber;
-        String rank;
-        String[] person = getResources().getStringArray(R.array.persons_table);
-        for (int i = 0; i < person.length; i++) {
-            int indeks = person[i].indexOf(":");
-            String[] tmp = person[i].split(":");
-            name = tmp[0].toUpperCase();
-            surname = tmp[1].toUpperCase();
-            tableNumber = Integer.valueOf(tmp[2].toUpperCase());
-            rank = tmp[3];
-            personsDAO.insert(new PersonsTable(name, surname, tableNumber, rank));
-        }
-    }
-
-    private View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.writeDatabaseB:
-                    personsListsRecycler.setAdapter(new RecyclerAdapter(getApplicationContext(), personsDAO.getPersons()));
-                    break;
-                case R.id.writePlkB:
-                    personsListsRecycler.setAdapter(new RecyclerAdapter(getApplicationContext(), personsDAO.getRank("Pulkownik".toUpperCase())));
-                    break;
-                case R.id.writeWeronikiB:
-                    personsListsRecycler.setAdapter(new RecyclerAdapter(getApplicationContext(), personsDAO.getName("Weronika".toUpperCase())));
-                    break;
-                default:
-                    throw new IllegalStateException("Unxpected value: " + view.getId());
-                }
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PersonsActivity.this, EditPersonActivity.class));
             }
-        };
+        });
+
+        mRecyclerView = findViewById(R.id.recyclerView);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Initialize the adapter and attach it to the RecyclerView
+        mAdapter = new PersonAdaptor(this);
+        mRecyclerView.setAdapter(mAdapter);
+        mDb = AppDatabase.getInstance(getApplicationContext());
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            // Called when a user swipes left or right on a ViewHolder
+            @Override
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                // Here is where you'll implement swipe to delete
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        int position = viewHolder.getAdapterPosition();
+                        List<Person> tasks = mAdapter.getTasks();
+                        mDb.personDao().delete(tasks.get(position));
+                        retrieveTasks();
+                    }
+                });
+            }
+        }).attachToRecyclerView(mRecyclerView);
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        retrieveTasks();
+    }
+
+    private void retrieveTasks() {
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                final List<Person> persons = mDb.personDao().loadAllPersons();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mAdapter.setTasks(persons);
+                    }
+                });
+            }
+        });
+
+
+    }
+}
