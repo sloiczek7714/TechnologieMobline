@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PersonsActivity">
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/recyclerView" />
+<!--    <TextView-->
+<!--        android:id="@+id/surname"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_margin="2dp" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/name"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_margin="2dp" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/tableNumber"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_margin="2dp" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/rank"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_margin="2dp" />-->
+
+    <Button
+        android:id="@+id/writeDatabaseB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elegantTextHeight="false"
+        android:text="@string/wypiszBaze"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/writePlkB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elegantTextHeight="false"
+        android:text="@string/wypiszPor"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/writeWeronikiB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elegantTextHeight="false"
+        android:text="@string/wypiszWer"
+        android:textSize="14sp" />
+</LinearLayout>

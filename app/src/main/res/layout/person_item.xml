@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/surname"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="2dp" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="2dp" />
+    <TextView
+        android:id="@+id/tableNumber"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="2dp" />
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="2dp" />
+    <Button
+        android:id="@+id/writeDatabaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elegantTextHeight="false"
+        android:text="@string/wypiszBaze"
+        android:textSize="14sp" />
+    <Button
+        android:id="@+id/writePlkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elegantTextHeight="false"
+        android:text="@string/wypiszPor"
+        android:textSize="14sp" />
+    <Button
+        android:id="@+id/writeWeronikiButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elegantTextHeight="false"
+        android:text="@string/wypiszWer"
+        android:textSize="14sp" />
+</LinearLayout>

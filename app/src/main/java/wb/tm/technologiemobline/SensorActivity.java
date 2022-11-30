@@ -1,17 +1,20 @@
 package wb.tm.technologiemobline;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -37,12 +40,13 @@ public class SensorActivity extends AppCompatActivity implements View.OnClickLis
     private float[] mKompasData = new float[3];
     private float[] mOrientation = new float[3];
     private float[] mRotationMatrix = new float[9];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
 
-        showSensorsButton = findViewById(R.id.showSensorB);
+    showSensorsButton = findViewById(R.id.showSensorB);
         showSensorsButton.setOnClickListener(this);
         list = findViewById(R.id.listaTv);
 
